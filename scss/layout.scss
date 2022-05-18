@@ -1,0 +1,182 @@
+// layout 공통
+$headerHeight: 60px;
+$subMenuHeight: 40px;
+$footerHeight: 80px;
+$mainMinHeight: calc( 100vh - (#{$headerHeight} + #{$footerHeight} + 50px ));
+#wrap {
+  width: 1320px;
+  margin: 0 auto;
+  #header {
+    position: relative;
+    height: $headerHeight;
+    // 로고영역
+    #top-logo {
+      float: left;
+      a {
+        height: $headerHeight;
+        line-height: $headerHeight;
+      }
+    }
+    // 메인메뉴
+    #top-nav {
+      position: relative;
+      height: $headerHeight;
+      float: right;
+      ul { // #top-nav ul 표기와 같다.
+        float: left;
+        li {
+          position: relative;
+          float: left;
+          margin-left: 30px;
+          &:first-child {
+            margin-left: 0;
+          }
+          a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            line-height: $headerHeight;
+          }
+          &:hover {
+            .sub-menu {
+              visibility: visible;
+              top: 100%;
+              opacity: 1;
+            }
+          }
+          //sub menu 구현
+          .sub-menu {
+            position: absolute;
+            border: 1px solid $borderColorPrimary;
+            visibility: hidden;
+            top: calc( 100% - 3px );
+            opacity: 0;
+            transition: .3s;
+            li {
+              width: 100%;
+              // clear: both;
+              margin: 0;
+              background: white;
+              box-sizing: border-box;
+              padding: 0 10px;
+              min-width: 150px;
+              transition: .3s;
+              &:hover{
+                background: $gbtnColor;
+                a{
+                  color: white;
+                }
+              }
+              a {
+                line-height: $subMenuHeight;
+                height: $subMenuHeight;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    min-height: $mainMinHeight;
+  }
+  #footer {
+    background: $layoutBg;
+    color: $fontColorPrimary;
+    font-size: 14px;
+    .footer-top {
+      padding: 60px 0 30px;
+    }
+  }
+
+
+
+  #footer .container {
+    width: 1140px;
+    margin: 0 auto;
+  }
+
+  #footer > .container {
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  #footer .container .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #footer .container .row .column {
+    flex: 25%;
+    padding: 0 10px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+
+  #footer .container .row .column.footer-logo h3 {
+    font-size: 34px;
+    padding: 2px 0 2px 10px;
+    // border-left: 4px solid $fontColorPrimary;
+    // line-height: 1;
+    // font-weight: 700;
+    // letter-spacing: 3px;
+  }
+
+  #footer .container .row .column h4 {
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+
+  #footer .container .row .column h4:before, #footer .container .row .column h4:after {
+    display: block;
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+  }
+
+  #footer .container .row .column h4:before {
+    right: 0;
+    background: $borderColor1;
+  }
+
+  #footer .container .row .column h4:after {
+    width: 60px;
+    background: $fontColorPrimary;
+  }
+
+  #footer .container .row .column ul li {
+    border-bottom: 1px solid $fontColorPrimary;
+    padding: 10px 0;
+  }
+
+  #footer .container .row .column ul li:nth-child(1) {
+    padding-top: 0;
+  }
+
+  #footer .container .row .column p {
+    line-height: 26px;
+  }
+
+  #footer .container .row .column.news input[type=text] {
+    border: 0;
+    padding: 6px 0px;
+    width: 65%;
+    box-sizing: border-box;
+  }
+
+  #footer .container .row .column.news input[type=submit] {
+    border: 0;
+    padding: 6px 8px;
+    width: 35%;
+    background: $fontColorPrimary;
+    color: white;
+  }
+}
